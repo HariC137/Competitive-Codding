@@ -1,0 +1,14 @@
+#Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        freq = {}
+        for i in nums:
+            try:
+                freq[i] += 1
+            except KeyError:
+                freq[i] = 1
+        for (i,j) in freq.items():
+            if j == 1:
+                return i 
+#https://leetcode.com/submissions/detail/430987499/
