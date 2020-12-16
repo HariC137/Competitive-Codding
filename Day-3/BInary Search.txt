@@ -1,0 +1,24 @@
+#Given a sorted (in ascending order) integer array nums of n elements and a target value, write a function to search target in nums. If target exists, then return its index, otherwise return -1.
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left = 0
+        right = len(nums)
+        mid = int((left+right)/2)
+        position = -1
+        for i in range(0,len(nums)):
+            if target  == nums[mid]:
+                position = mid
+                return position
+            elif target > nums[mid]:
+                left = mid
+                mid = int((left+right)/2)
+                continue
+            elif target < nums[mid]:
+                right = mid
+                mid = int((left+right)/2)
+                continue
+        return position
+
+            
+        #https://leetcode.com/submissions/detail/431255908/

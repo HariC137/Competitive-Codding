@@ -1,0 +1,16 @@
+# Given a list of sorted characters letters containing only lowercase letters, and given a target letter target, find the smallest element in the list that is larger than the given target.
+
+#Letters also wrap around. For example, if the target is target = 'z' and letters = ['a', 'b'], the answer is 'a'. 
+
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        least = []
+        for i in letters:
+            if ord(i)> ord(target):
+                least.append(i)
+        if len(least) == 0:
+            letters.sort()
+            return letters[0]
+        least.sort()
+        return(least[0])
+#https://leetcode.com/submissions/detail/431264507/
