@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        unordered_set <ListNode* > address;
+        //address.insert(head);
+        while(head->next != NULL && head != NULL)
+        {
+        if(address.find(head->next) != address.end())
+        {
+            return true;
+        }
+        else
+        {
+            address.insert(head->next);
+            head = head->next;
+        }
+        }
+        
+        return false;
+    }
+};
